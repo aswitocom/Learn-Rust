@@ -9,4 +9,11 @@ Welcome to my personal playground and daily journal for mastering the Rust progr
 
 The code is organized in folders. So each folder is like a complete project or solution that I may have worked on.
 
+To run a specific Package:
+    ```
+        cargo run -p <package-name> e.g cargo run -p pig_latin
+    ```
+
 ## Learning Log & Milestones
+
+-Built minimal version of pig latin exercise from Chapter 8: Common Collections
