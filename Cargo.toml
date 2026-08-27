@@ -1,5 +1,5 @@
 [workspace]
 resolver =  "3"
-members = ["employee_list",
+members = ["employee_list", "median_mode",
     "pig_latin",
 ]
