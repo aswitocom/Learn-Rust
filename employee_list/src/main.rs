@@ -6,7 +6,7 @@ fn main() {
 
     let mut add_employee = String::new();
 
-    println!("Add Employee to a Department");
+    println!("Add Employee to a Department (e.g., 'Add Sally to Engineering");
 
     loop {
         add_employee.clear();
@@ -23,12 +23,23 @@ fn main() {
 
         let words: Vec<&str> = add_employee.split_whitespace().collect();
 
-        let employee = words[1].to_string();
-        let department = words[3].to_string();
+        let employee = match words.get(1) {
+            Some(emp) => emp.to_string(),
+            None => {
+                println!("Error: Missing employee name.");
+                continue;
+            }
+        };
 
-        let department_list = company_employees
-            .entry(department)
-            .or_insert(Vec::new());
+        let department = match words.get(3) {
+            Some(dept) => dept.to_string(),
+            None => {
+                println!("Error: Missing department name.");
+                continue;
+            }
+        };
+
+        let department_list = company_employees.entry(department).or_insert(Vec::new());
 
         department_list.push(employee);
         department_list.sort();
